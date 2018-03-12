@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Challenge 1</title>
+        <link rel="stylesheet" type="text/css" href="styles.css"><script src="//d3js.org/d3.v3.min.js"></script>
+        <script type="text/javascript" src="visualisation.js"></script>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    </head>
+    
+    <!-- #EAE8FF B0D7FF -->
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>11:35 AM 2-17-2018</h1>
+            </div>
+            
+            <div class="speed">
+                <h1>Speed</h1>
+                <canvas id="mySpeedChart"></canvas>
+            </div>
+            <div class="fuel">
+                <h1>Fuel</h1>
+                <canvas id="myFuelChart"></canvas>
+            </div>
+            <div class="engine">
+                <h1>Engine temperature</h1>
+                <canvas id="myEngineChart"></canvas>
+            </div>
+            
+            <div class="supplies hoi">
+                <h1>Supplies</h1>
+                <canvas id="myFoodChart"></canvas>
+                <canvas id="myWaterChart"></canvas>
+            </div>
+            
+            <div class="traveled">
+                <h1>Traveled distance</h1>
+                <canvas id="myDistanceChart"></canvas>
+            </div>
+        </div>
+        
+        <script>
+            
+            let myChart4 = document.getElementById('myFuelChart').getContext('2d');
+
+            // Global Options
+            Chart.defaults.global.defaultFontSize = 18;
+            Chart.defaults.global.defaultFontColor = '#777';
+
+            let massPopChart4 = new Chart(myFuelChart, {
+              type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+              data:{
+                labels:['',],
+                datasets:[{
+                  label:'Temperature',
+                  data:[
+                    1000,
+                    250,
+                  ],
+                  //backgroundColor:'green',
+                  backgroundColor:[
+                    '#EAE8FF',
+                    '#B0D7FF'
+                  ],
+                  borderWidth:0,
+                  borderColor:'#777',
+                  hoverBorderWidth:3,
+                  hoverBorderColor:'#000'
+                }]
+              },
+              options:{
+                responsive: true,
+                  maintainAspectRatio: false,
+                title:{
+                  display:false,
+                  text:'',
+                  fontSize:25
+                },
+                legend:{
+                  display:false,
+                  position:'right',
+                  labels:{
+                    fontColor:'#000'
+                  }
+                },
+                tooltips:{
+                  enabled:true
+                }
+              }
+            });
+            
+            let myChart5 = document.getElementById('myEngineChart').getContext('2d');
+
+            // Global Options
+            Chart.defaults.global.defaultFontSize = 18;
+            Chart.defaults.global.defaultFontColor = '#777';
+
+            let massPopChart5 = new Chart(myEngineChart, {
+              type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+              data:{
+                labels:['',],
+                datasets:[{
+                  label:'Temperature',
+                  data:[
+                    500,
+                    250,
+                  ],
+                  //backgroundColor:'green',
+                  backgroundColor:[
+                    '#EAE8FF',
+                    '#B0D7FF'
+                  ],
+                  borderWidth:0,
+                  borderColor:'#777',
+                  hoverBorderWidth:3,
+                  hoverBorderColor:'#000'
+                }]
+              },
+              options:{
+                responsive: true,
+                  maintainAspectRatio: false,
+                title:{
+                  display:false,
+                  text:'',
+                  fontSize:25
+                },
+                legend:{
+                  display:false,
+                  position:'right',
+                  labels:{
+                    fontColor:'#000'
+                  }
+                },
+                tooltips:{
+                  enabled:true
+                }
+              }
+            });
+            
+            let myChart3 = document.getElementById('mySpeedChart').getContext('2d');
+
+            // Global Options
+            Chart.defaults.global.defaultFontSize = 18;
+            Chart.defaults.global.defaultFontColor = '#777';
+
+            let massPopChart3 = new Chart(mySpeedChart, {
+              type:'doughnut', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+              data:{
+                labels:['Full speed', 'No speed'],
+                datasets:[{
+                  label:'Speed',
+                  data:[
+                    100,
+                    50,
+                  ],
+                  //backgroundColor:'green',
+                  backgroundColor:[
+                    '#EAE8FF',
+                    '#B0D7FF'
+                  ],
+                  borderWidth:0,
+                  borderColor:'#777',
+                  hoverBorderWidth:3,
+                  hoverBorderColor:'#000'
+                }]
+              },
+              options:{
+                responsive: true,
+                  maintainAspectRatio: false,
+                title:{
+                  display:false,
+                  text:'',
+                  fontSize:25
+                },
+                legend:{
+                  display:false,
+                  position:'right',
+                  labels:{
+                    fontColor:'#000'
+                  }
+                },
+                tooltips:{
+                  enabled:true
+                }
+              }
+            });
+            
+            let myChart1 = document.getElementById('myFoodChart').getContext('2d');
+
+            // Global Options
+            Chart.defaults.global.defaultFontSize = 18;
+            Chart.defaults.global.defaultFontColor = '#777';
+
+            let massPopChart1 = new Chart(myFoodChart, {
+              type:'doughnut', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+              data:{
+                labels:['Full', 'Empty'],
+                datasets:[{
+                  label:'Food',
+                  data:[
+                    617594,
+                    181045,
+                  ],
+                  //backgroundColor:'green',
+                  backgroundColor:[
+                    '#EAE8FF',
+                    '#B0D7FF'
+                  ],
+                  borderWidth:0,
+                  borderColor:'#777',
+                  hoverBorderWidth:3,
+                  hoverBorderColor:'#000'
+                }]
+              },
+              options:{
+                responsive: true,
+                  maintainAspectRatio: false,
+                title:{
+                  display:false,
+                  text:'',
+                  fontSize:25
+                },
+                legend:{
+                  display:false,
+                  position:'right',
+                  labels:{
+                    fontColor:'#000'
+                  }
+                },
+                tooltips:{
+                  enabled:true
+                }
+              }
+            });
+            
+            let myChart2 = document.getElementById('myWaterChart').getContext('2d');
+
+            // Global Options
+            Chart.defaults.global.defaultFontSize = 18;
+            Chart.defaults.global.defaultFontColor = '#777';
+
+            let massPopChart2 = new Chart(myWaterChart, {
+              type:'doughnut', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+              data:{
+                labels:['Full', 'Empty'],
+                datasets:[{
+                  label:'Food',
+                  data:[
+                    617594,
+                    181045,
+                  ],
+                  //backgroundColor:'green',
+                  backgroundColor:[
+                    '#EAE8FF',
+                    '#B0D7FF',
+                  ],
+                  borderWidth:0,
+                  borderColor:'#777',
+                  hoverBorderWidth:3,
+                  hoverBorderColor:'#000'
+                }]
+              },
+              options:{
+                responsive: true,
+                  maintainAspectRatio: false,
+                title:{
+                  display:false,
+                  text:'',
+                  fontSize:25
+                },
+                legend:{
+                  display:false,
+                  position:'right',
+                  labels:{
+                    fontColor:'#000'
+                  }
+                },
+                tooltips:{
+                  enabled:true
+                }
+              }
+            });
+            
+            let myChart = document.getElementById('myDistanceChart').getContext('2d');
+
+            // Global Options
+            Chart.defaults.global.defaultFontSize = 18;
+            Chart.defaults.global.defaultFontColor = '#777';
+
+            let massPopChart = new Chart(myDistanceChart, {
+              type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+              data:{
+                labels:['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                datasets:[{
+                  label:'Population',
+                  data:[
+                    617594,
+                    181045,
+                    153060,
+                    106519,
+                    105162,
+                    95072,
+                    95072
+                  ],
+                  //backgroundColor:'green',
+                  backgroundColor:[
+                    '#EAE8FF',
+                    '#B0D7FF',
+                    '#EAE8FF',
+                    '#B0D7FF',
+                    '#EAE8FF',
+                    '#B0D7FF',
+                    '#EAE8FF',
+                    '#B0D7FF'
+                  ],
+                  borderWidth:0,
+                  borderColor:'#777',
+                  hoverBorderWidth:3,
+                  hoverBorderColor:'#000'
+                }]
+              },
+              options:{
+                responsive: true,
+                  maintainAspectRatio: false,
+                title:{
+                  display:false,
+                  text:'',
+                  fontSize:25
+                },
+                legend:{
+                  display:false,
+                  position:'right',
+                  labels:{
+                    fontColor:'#000'
+                  }
+                },
+                tooltips:{
+                  enabled:true
+                }
+              }
+            });
+            
+            
+            
+            
+        </script>
+    </body>
+    
+</html>
