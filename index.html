@@ -1,54 +1,79 @@
 <!DOCTYPE html>
 <html>
-    
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Challenge 1</title>
         <link rel="stylesheet" type="text/css" href="styles.css"><script src="//d3js.org/d3.v3.min.js"></script>
-        <script type="text/javascript" src="visualisation.js"></script>
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
     </head>
     
-    <!-- #EAE8FF B0D7FF -->
     <body>
         <div class="container">
+            
             <div class="header">
-                <h1>11:35 AM 2-17-2018</h1>
+                <div class="date-element"><h1>11:35 AM 2-17-2018</h1></div>
             </div>
             
             <div class="speed">
                 <h1>Speed</h1>
-                <canvas id="mySpeedChart"></canvas>
-            </div>
-            <div class="fuel">
-                <h1>Fuel</h1>
-                <canvas id="myFuelChart"></canvas>
-            </div>
-            <div class="engine">
-                <h1>Engine temperature</h1>
-                <canvas id="myEngineChart"></canvas>
+                <div class="speed-element"><canvas id="mySpeedChart"></canvas></div>
             </div>
             
-            <div class="supplies hoi">
+            <div class="fuel">
+                <h1>Fuel</h1>
+                <div class="fuelChart-element"><canvas id="myFuelChart"></canvas></div>
+                
+                <div class="fuelText-element">
+                    <p>Tankage</p>
+                    <p>45.550/50.000 L</p>
+
+                    <p>Km to go</p>
+                    <p>65.433 km</p>
+                </div>
+            </div>
+            
+            <div class="engine">
+                <h1>Engine temperature</h1>
+                <div class="temperatureChart-element"><canvas id="myEngineChart"></canvas></div>
+                
+                <div class="temperatureText-element">
+                    <p>Current</p>
+                    <p>50 degrees celcius</p>
+
+                    <p>Max. temp</p>
+                    <p>100 degrees celcius</p>
+                </div>
+            </div>
+            
+            <div class="supplies">
                 <h1>Supplies</h1>
-                <canvas id="myFoodChart"></canvas>
-                <canvas id="myWaterChart"></canvas>
+                
+                <div class="supply-element">
+                    <h2>Food</h2>
+                    <canvas id="myFoodChart"></canvas>
+                </div>
+                
+                <div class="supply-element">
+                    <h2>Water</h2>
+                    <canvas id="myWaterChart"></canvas>
+                </div>
             </div>
             
             <div class="traveled">
                 <h1>Traveled distance</h1>
-                <canvas id="myDistanceChart"></canvas>
+                <div class="distance-element"><canvas id="myDistanceChart"></canvas></div>
             </div>
+            
         </div>
         
         <script>
-            
+            //FUEL
             let myChart4 = document.getElementById('myFuelChart').getContext('2d');
 
             // Global Options
-            Chart.defaults.global.defaultFontSize = 18;
+            Chart.defaults.global.defaultFontSize = 14;
             Chart.defaults.global.defaultFontColor = '#777';
 
             let massPopChart4 = new Chart(myFuelChart, {
@@ -93,10 +118,11 @@
               }
             });
             
+            //ENGINE TEMPERATURE
             let myChart5 = document.getElementById('myEngineChart').getContext('2d');
 
             // Global Options
-            Chart.defaults.global.defaultFontSize = 18;
+            Chart.defaults.global.defaultFontSize = 14;
             Chart.defaults.global.defaultFontColor = '#777';
 
             let massPopChart5 = new Chart(myEngineChart, {
@@ -141,10 +167,11 @@
               }
             });
             
+            //SPEED
             let myChart3 = document.getElementById('mySpeedChart').getContext('2d');
 
             // Global Options
-            Chart.defaults.global.defaultFontSize = 18;
+            Chart.defaults.global.defaultFontSize = 14;
             Chart.defaults.global.defaultFontColor = '#777';
 
             let massPopChart3 = new Chart(mySpeedChart, {
@@ -189,10 +216,11 @@
               }
             });
             
+            //FOOD
             let myChart1 = document.getElementById('myFoodChart').getContext('2d');
 
             // Global Options
-            Chart.defaults.global.defaultFontSize = 18;
+            Chart.defaults.global.defaultFontSize = 14;
             Chart.defaults.global.defaultFontColor = '#777';
 
             let massPopChart1 = new Chart(myFoodChart, {
@@ -237,10 +265,11 @@
               }
             });
             
+            //WATER
             let myChart2 = document.getElementById('myWaterChart').getContext('2d');
 
             // Global Options
-            Chart.defaults.global.defaultFontSize = 18;
+            Chart.defaults.global.defaultFontSize = 14;
             Chart.defaults.global.defaultFontColor = '#777';
 
             let massPopChart2 = new Chart(myWaterChart, {
@@ -285,10 +314,11 @@
               }
             });
             
+            //TRAVELED DISTANCE
             let myChart = document.getElementById('myDistanceChart').getContext('2d');
 
             // Global Options
-            Chart.defaults.global.defaultFontSize = 18;
+            Chart.defaults.global.defaultFontSize = 14;
             Chart.defaults.global.defaultFontColor = '#777';
 
             let massPopChart = new Chart(myDistanceChart, {
@@ -296,7 +326,7 @@
               data:{
                 labels:['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
                 datasets:[{
-                  label:'Population',
+                  label:'Traveled km',
                   data:[
                     617594,
                     181045,
@@ -343,11 +373,6 @@
                 }
               }
             });
-            
-            
-            
-            
         </script>
     </body>
-    
 </html>
