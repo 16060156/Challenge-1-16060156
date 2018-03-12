@@ -12,55 +12,63 @@
     <body>
         <div class="container">
             
+            <!-- DATE -->
             <div class="header">
                 <div class="date-element"><h1>11:35 AM 2-17-2018</h1></div>
             </div>
             
+            <!-- SPEED -->
             <div class="speed">
                 <h1>Speed</h1>
                 <div class="speed-element"><canvas id="mySpeedChart"></canvas></div>
             </div>
             
+            <!-- FUEL -->
             <div class="fuel">
                 <h1>Fuel</h1>
-                <div class="fuelChart-element"><canvas id="myFuelChart"></canvas></div>
-                
-                <div class="fuelText-element">
-                    <p>Tankage</p>
-                    <p>45.550/50.000 L</p>
+                <div id="fuel-center">
+                    <div class="fuelChart-element"><canvas id="myFuelChart"></canvas></div>
 
-                    <p>Km to go</p>
-                    <p>65.433 km</p>
+                    <div class="fuelText-element">
+                        <p>Tankage <br />45.550/50.000 L</p>
+                        <p>Km to go <br />65.433 km</p>
+                    </div>
                 </div>
             </div>
             
+            <!-- ENGINE -->
             <div class="engine">
                 <h1>Engine temperature</h1>
-                <div class="temperatureChart-element"><canvas id="myEngineChart"></canvas></div>
-                
-                <div class="temperatureText-element">
-                    <p>Current</p>
-                    <p>50 degrees celcius</p>
+                <div id="engine-center">
+                    <div class="temperatureChart-element">
+                        <canvas id="myEngineChart"></canvas>
+                    </div>
 
-                    <p>Max. temp</p>
-                    <p>100 degrees celcius</p>
+                    <div class="temperatureText-element">
+                        <p>Current <br />50 degrees celcius</p>
+                        <p>Max. temp <br />100 degrees celcius</p>
+                    </div>
                 </div>
             </div>
             
+            <!-- SUPPLIES -->
             <div class="supplies">
                 <h1>Supplies</h1>
                 
-                <div class="supply-element">
-                    <h2>Food</h2>
-                    <canvas id="myFoodChart"></canvas>
-                </div>
-                
-                <div class="supply-element">
-                    <h2>Water</h2>
-                    <canvas id="myWaterChart"></canvas>
+                <div id="supplies-center">
+                    <div class="supplyfood-element">
+                        <h2>Food</h2>
+                        <canvas id="myFoodChart"></canvas>
+                    </div>
+
+                    <div class="supplywater-element">
+                        <h2>Water</h2>
+                        <canvas id="myWaterChart"></canvas>
+                    </div>
                 </div>
             </div>
             
+            <!-- TRAVELED DISTANCE -->
             <div class="traveled">
                 <h1>Traveled distance</h1>
                 <div class="distance-element"><canvas id="myDistanceChart"></canvas></div>
@@ -72,7 +80,6 @@
             //FUEL
             let myChart4 = document.getElementById('myFuelChart').getContext('2d');
 
-            // Global Options
             Chart.defaults.global.defaultFontSize = 14;
             Chart.defaults.global.defaultFontColor = '#777';
 
@@ -86,7 +93,6 @@
                     1000,
                     250,
                   ],
-                  //backgroundColor:'green',
                   backgroundColor:[
                     '#EAE8FF',
                     '#B0D7FF'
@@ -121,7 +127,6 @@
             //ENGINE TEMPERATURE
             let myChart5 = document.getElementById('myEngineChart').getContext('2d');
 
-            // Global Options
             Chart.defaults.global.defaultFontSize = 14;
             Chart.defaults.global.defaultFontColor = '#777';
 
@@ -135,7 +140,6 @@
                     500,
                     250,
                   ],
-                  //backgroundColor:'green',
                   backgroundColor:[
                     '#EAE8FF',
                     '#B0D7FF'
@@ -147,6 +151,13 @@
                 }]
               },
               options:{
+                  scales: {
+                    yAxes: [{
+                        ticks: {
+                                beginAtZero: true
+                        }
+                    }]
+                },
                 responsive: true,
                   maintainAspectRatio: false,
                 title:{
@@ -170,7 +181,6 @@
             //SPEED
             let myChart3 = document.getElementById('mySpeedChart').getContext('2d');
 
-            // Global Options
             Chart.defaults.global.defaultFontSize = 14;
             Chart.defaults.global.defaultFontColor = '#777';
 
@@ -184,7 +194,6 @@
                     100,
                     50,
                   ],
-                  //backgroundColor:'green',
                   backgroundColor:[
                     '#EAE8FF',
                     '#B0D7FF'
@@ -219,7 +228,6 @@
             //FOOD
             let myChart1 = document.getElementById('myFoodChart').getContext('2d');
 
-            // Global Options
             Chart.defaults.global.defaultFontSize = 14;
             Chart.defaults.global.defaultFontColor = '#777';
 
@@ -233,7 +241,6 @@
                     617594,
                     181045,
                   ],
-                  //backgroundColor:'green',
                   backgroundColor:[
                     '#EAE8FF',
                     '#B0D7FF'
@@ -268,7 +275,6 @@
             //WATER
             let myChart2 = document.getElementById('myWaterChart').getContext('2d');
 
-            // Global Options
             Chart.defaults.global.defaultFontSize = 14;
             Chart.defaults.global.defaultFontColor = '#777';
 
@@ -282,7 +288,6 @@
                     617594,
                     181045,
                   ],
-                  //backgroundColor:'green',
                   backgroundColor:[
                     '#EAE8FF',
                     '#B0D7FF',
@@ -317,7 +322,6 @@
             //TRAVELED DISTANCE
             let myChart = document.getElementById('myDistanceChart').getContext('2d');
 
-            // Global Options
             Chart.defaults.global.defaultFontSize = 14;
             Chart.defaults.global.defaultFontColor = '#777';
 
@@ -336,7 +340,6 @@
                     95072,
                     95072
                   ],
-                  //backgroundColor:'green',
                   backgroundColor:[
                     '#EAE8FF',
                     '#B0D7FF',
